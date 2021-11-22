@@ -33,7 +33,7 @@ export const moviesReducer = createSlice({
 
 export const fetchMovies = (state) => (dispatch) => {
   if (state.pageNo === 0 || state.pageNo < state.totalPages) {
-    //TODO: The api key below will be part for env file & will not be avilable publick channels, I made it as part for codebase for demo purpose 
+    //TODO: The api key below will be part for env file & will not be avilable public channels, I made it as part for codebase for test purpose.
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=f6a87a1401051aff485fd664c929c93e&language=en-US&page=${
       state.pageNo + 1
     }`;

@@ -3,7 +3,7 @@ import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import DeleteIcon from "@mui/icons-material/DeleteOutline";
 import { useSelector, useDispatch } from "react-redux";
-import { removeStarredMovie, addStarredMovie } from "../redux/reducer";
+import { removeStarredMovie, addStarredMovie } from "../../redux/reducer";
 
 const Cardcontainer = styled.div`
   display: grid;
@@ -43,6 +43,7 @@ const Delete = styled(DeleteIcon)`
 
 const Title = styled.div`
   font-weight: bold;
+  margin-top: 4px
 `;
 
 const Moviecard = ({ movie, ...props }) => {
@@ -70,7 +71,7 @@ const Moviecard = ({ movie, ...props }) => {
             onClick={() => dispatch(addStarredMovie(movie))}
           ></StarOutline>
         ))}
-      {selectedTab && <Delete onClick={() => dispatch(removeStarredMovie(movie.id))} ></Delete>}
+      {!!selectedTab && <Delete onClick={() => dispatch(removeStarredMovie(movie.id))} ></Delete>}
       <Title> {movie.title}</Title>
       <div> {movie.release_date && movie.release_date.split("-")[0]}</div>
       <div>

@@ -3,7 +3,7 @@ import Moviecard from "./movie-card/movie-card";
 import styled from "styled-components";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchMovies, updateTab } from "./redux/reducer";
+import { fetchMovies, updateTab } from "../redux/reducer";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Container from "@mui/material/Container";
@@ -21,6 +21,7 @@ function Movies() {
 
   useEffect(() => {
     dispatch(fetchMovies(state));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAllMovieCards = (data) =>
